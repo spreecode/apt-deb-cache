@@ -4,7 +4,7 @@
 
     mkdir cache
     docker run --rm -v $(pwd)/cache:/var/cache/apt/archives \
-        spreecode/getdep:latest PACKAGE1 [PACKAGE2 [...]]
+        spreecode/apt-deb-cache:latest PACKAGE1 [PACKAGE2 [...]]
 
 ## Repository usage
 
