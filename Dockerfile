@@ -1,7 +1,7 @@
 FROM ubuntu
 
 LABEL maintainer="Leonid Suprun <leonid@suprun.pw>"
-VOLUME [ "/var/cache/apt/" ]
+VOLUME [ "/var/cache/apt/archives" ]
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends dpkg-dev \
