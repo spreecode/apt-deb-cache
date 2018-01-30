@@ -18,6 +18,8 @@ gen_pack() {
 case $1 in
 gen_pack)
     gen_pack;;
+install)
+    shift;&
 *)
     install $* && gen_pack;;
 esac
