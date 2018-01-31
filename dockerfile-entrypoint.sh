@@ -2,17 +2,22 @@
 
 set -ex
 
-CACHE=/var/cache/apt/archives
+APT_CACHE=/var/cache/apt/archives
+APP=/app
+ARCHIVES=${APP}/archives
 
+mkdir -p ${ARCHIVES}
+[[ -x ${APP}/init.sh ]] && ${APP}/init.sh
 
 install() {
     apt-get update
     apt-get install -y $*
+    cp ${APT_CACHE}/*.deb ${ARCHIVES}
 }
 
 gen_pack() {
-    cd ${CACHE}
-    dpkg-scanpackages ./ /dev/null | gzip -9c > ${CACHE}/Packages.gz
+    cd ${ARCHIVES}
+    dpkg-scanpackages ./ /dev/null | gzip -9c > Packages.gz
 }
 
 case $1 in

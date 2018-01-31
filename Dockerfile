@@ -1,10 +1,10 @@
 FROM ubuntu
 
 LABEL maintainer="Leonid Suprun <leonid@suprun.pw>"
-VOLUME [ "/var/cache/apt/archives" ]
+VOLUME [ "/app" ]
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends dpkg-dev \
+ && apt-get install -y --no-install-recommends dpkg-dev wget \
  && apt-get clean \
  && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
