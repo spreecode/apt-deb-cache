@@ -11,7 +11,7 @@ mkdir -p ${ARCHIVES}
 
 install() {
     apt-get update
-    apt-get install -y $*
+    apt-get install -y --allow-unauthenticated $*
     cp ${APT_CACHE}/*.deb ${ARCHIVES}
 }
 
